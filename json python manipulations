@@ -1,0 +1,45 @@
+import json
+
+employs="""{
+    "name": "Employees",
+    "employees": [
+        {
+            "id": 1,
+            "firstName": "Ravikiran",
+            "middleName":null,
+            "lastName": "Chimirala"
+        },
+        {
+            "id": 2,
+            "firstName": "Ravindra",
+            "middleName": "Naik",
+            "lastName": "Banavanthu"
+        },
+        {
+            "id": 3,
+            "firstName": "Divya",
+            "middleName": null,
+            "lastName": "Pappala"
+        }
+    ]
+}"""
+data =json.loads(employs)
+dictt={}
+fn=""
+for emp in data['employees']:
+    if emp["middleName"]=="null" :
+          fn=emp["firstName"]+emp["middleName"]+emp["lastName"]
+          email=(fn+"@omniwyse.com")
+    else:
+        email=emp["firstName"]+"."+emp["lastName"]+"@omniwyse.com"
+        
+  
+    dictt[email]={"id":emp["id"],"fullname":fn}
+
+dt=json.dumps(dictt)
+print(dt)
+
+    
+        
+        
+        
