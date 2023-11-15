@@ -17,6 +17,37 @@ for emp in data['employees']:
 dt=json.dumps(dictt)
 print(dt)
 
+#using oops
+import json
+class programs:
+     #functiion that returns a dictionary
+     def eg(self,employs):
+        data =json.loads(employs)
+        dictt={}
+        fn=""
+        for emp in data['employees']:
+            if emp["middleName"]=="null" :
+                fn=emp["firstName"]+emp["middleName"]+emp["lastName"]
+                email=(fn+"@omniwyse.com")
+            else:
+                fn=emp["firstName"]+"."+emp["lastName"]
+                email=fn +"@omniwyse.com"
+            dictt[email]={"id":emp["id"],"fullname":fn}
+        return dictt
+     
+p1=programs()
+y=open("employees.json","r")
+employs=y.read()
+dicttt=p1.eg(employs)
+dt=json.dumps(dicttt)
+print(dt)
+
+    
+        
+        
+        
+
+
     
         
         
