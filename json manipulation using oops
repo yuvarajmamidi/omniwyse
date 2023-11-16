@@ -20,6 +20,7 @@ class Employee:
         else:
             em=fn+mn+"."+ln+"@omniwyse.com"
         return em
+
     #creating mail dictionary 
     def to_dict(self,dict,mail,id,fn):
         dict[mail]={"id":id,"fullname":fn}
