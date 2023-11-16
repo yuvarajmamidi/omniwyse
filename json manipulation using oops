@@ -5,7 +5,7 @@ class Employee:
         self.first_name=first_name
         self.last_name=last_name
         self.middle_name=middle_name
-        
+    
     #returns object
     @staticmethod
     def from_dict(dict):   
@@ -20,11 +20,12 @@ class Employee:
         else:
             em=fn+mn+"."+ln+"@omniwyse.com"
         return em
+    
     #creating mail dictionary 
     @staticmethod
     def to_dict(dict,mail,id,fn):
         dict[mail]={"id":id,"fullname":fn}
-  
+#driver code
 f=open("employees.json","r")
 d=f.read()
 dict={}
