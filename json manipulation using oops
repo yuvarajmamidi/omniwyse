@@ -1,0 +1,53 @@
+import json
+class Employee:
+    def __init__(self,id="None",first_name="None",last_name="None",middle_name="None"):        
+        self.id=id
+        self.first_name=first_name
+        self.last_name=last_name
+        self.middle_name=middle_name
+        
+    #returns object
+    def from_dict(self,dict,id):
+        for key in dict:
+          if(key["id"]==id):
+              p1=Employee(key["id"],key["firstName"],key["lastName"],key["middleName"])
+        return p1
+    
+    #returns mailid
+    def generate_email(self,fn,mn,ln):
+        if mn=="None":
+            em= fn+"."+ln+"@omniwyse.com"
+        else:
+            em=fn+mn+"."+ln+"@omniwyse.com"
+        return em
+    #creating mail dictionary 
+    def to_dict(self,dict,mail,id,fn):
+        dict[mail]={"id":id,"fullname":fn}
+        
+        
+f=open("employees.json","r")
+d=f.read()
+data=json.loads(d)
+dict={}
+o=Employee()
+
+p1=o.from_dict(data["employees"],1)
+email=o.generate_email(str(p1.first_name),str(p1.middle_name),str(p1.last_name))
+o.to_dict(dict,email,p1.id,(p1.first_name +p1.last_name))
+          
+p2=o.from_dict(data["employees"],2)
+email2=o.generate_email(str(p2.first_name),str(p2.middle_name),str(p2.last_name))
+o.to_dict(dict,email2,p2.id,(p2.first_name +p2.last_name))
+
+p3=o.p1=o.from_dict(data["employees"],3)
+email3=o.generate_email(str(p3.first_name),str(p3.middle_name),str(p3.last_name))
+o.to_dict(dict,email3,p3.id,(p3.first_name +p3.last_name))
+
+print(dict)
+        
+
+        
+
+            
+
+
