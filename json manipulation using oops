@@ -13,7 +13,7 @@ class Employee:
         return p1
     
     #returns mailid
-    @staticmethod
+    
     def generate_email(fn,mn,ln):
         if mn=="None":
             em= fn+"."+ln+"@omniwyse.com"
@@ -22,7 +22,7 @@ class Employee:
         return em
     
     #creating mail dictionary 
-    @staticmethod
+    
     def to_dict(dict,mail,id,fn):
         dict[mail]={"id":id,"fullname":fn}
 #driver code
