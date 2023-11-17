@@ -35,7 +35,9 @@ for emp in data["employees"]:
      gmail=Employee.generate_email(str(p1.first_name),str(p1.middle_name),str(p1.last_name))
      Employee.to_dict(dict,gmail,p1.id,(p1.first_name+p1.last_name))
 jsonfile=json.dumps(dict)
-print(jsonfile)
+dt=open("employee.json","w")
+json.write(dt)
+
     
 
 
