@@ -36,7 +36,7 @@ for emp in data["employees"]:
      Employee.to_dict(dict,gmail,p1.id,(p1.first_name+p1.last_name))
 jsonfile=json.dumps(dict)
 dt=open("employee.json","w")
-json.write(dt)
+dt.write(jsonfile)
 
     
 
